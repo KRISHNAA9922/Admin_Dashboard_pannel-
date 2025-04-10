@@ -69,8 +69,8 @@ const Inward = () => {
                 </tr>
               </thead>
               <tbody>
-                {entries.map((entry) => (
-                  <tr key={entry._id} className="border-t hover:bg-gray-50">
+                {entries.map((entry, index) => (
+                  <tr key={entry._id} className={`border-t hover:bg-gray-50 ${index % 2 === 0 ? 'bg-gray-100' : ''}`}>
                     <td className="p-4">{entry.name}</td>
                     <td className="p-4">{entry.mobile}</td>
                     <td className="p-4">{entry.qty}</td>
@@ -80,13 +80,13 @@ const Inward = () => {
                     <td className="p-4 flex gap-4">
                       <button
                         onClick={() => handleUpdate(entry)}
-                        className="text-blue-600 hover:text-blue-800 transform hover:scale-105 transition-transform duration-200"
+                        className="text-white bg-blue-600 hover:bg-blue-700 hover:text-white py-2 px-4 rounded-lg shadow-md transform hover:scale-105 transition-all duration-300"
                       >
                         Update
                       </button>
                       <button
                         onClick={() => handleDelete(entry._id)}
-                        className="text-red-600 hover:text-red-800 transform hover:scale-105 transition-transform duration-200"
+                        className="text-white bg-red-600 hover:bg-red-700 hover:text-white py-2 px-4 rounded-lg shadow-md transform hover:scale-105 transition-all duration-300"
                       >
                         Delete
                       </button>
